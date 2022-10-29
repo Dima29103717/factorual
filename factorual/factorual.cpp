@@ -7,16 +7,11 @@
 using namespace std;
 
 int fac(int n, int sizeK,int NprocK,int k) {
-	if (NprocK != 0) {
-		if ((sizeK - k) < NprocK)
-			return n * NprocK;
+	if (sizeK <= 0) {
+		return n;
 	}
-	else
-		if (sizeK == 0)
-			return n;
-
 	n *= sizeK;
-	fac(n, sizeK -= k,NprocK,k);
+	return fac(n, sizeK -= k,NprocK,k);
 }
 
 int main()
