@@ -6,12 +6,12 @@
 
 using namespace std;
 
-int fac(int n, int sizeK,int NprocK,int k) {
+int fac(int n, int sizeK,int k) {
 	if (sizeK <= 0) {
 		return n;
 	}
 	n *= sizeK;
-	return fac(n, sizeK -= k,NprocK,k);
+	return fac(n, sizeK -= k,k);
 }
 
 int main()
@@ -19,7 +19,7 @@ int main()
 	int n;
 	string k;
 	cin >> n >> k;
-	cout << fac(n, n-k.size(), n % k.size(),k.size());
+	cout << fac(n, n-k.size(), k.size());
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
